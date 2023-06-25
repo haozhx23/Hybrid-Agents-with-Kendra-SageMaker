@@ -3,7 +3,7 @@
  \- on AWS
  
 #### Sketch Demo
-<img src="demo.png" alt="image-22134105067" style="zoom:35%;" width = "600" height = "400" align="middle" />
+<img src="demo.png" alt="image-22134105067" style="zoom:40%;" align="middle" />
 
 </br>
 
