@@ -14,19 +14,10 @@ tokenizer = None
 def get_model(properties):
     model_name = properties["model_id"]
     tensor_parallel_degree = properties["tensor_parallel_degree"]
-    # max_tokens = int(properties.get("max_tokens", "1024"))
-    # dtype = torch.float16
-    # model = LlamaForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=True, torch_dtype=dtype, device_map='auto')
-    # tokenizer = LlamaTokenizer.from_pretrained(model_name)
-    # tokenizer.pad_token = tokenizer.eos_token
-    
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-    # model = AutoModel.from_pretrained(model_name, trust_remote_code=True, torch_dtype=torch.float16, device_map='auto')
-    model = AutoModel.from_pretrained("THUDM/chatglm-6b", trust_remote_code=True).half().cuda()
-    
-    # tokenizer.pad_token = tokenizer.eos_token
-    tokenizer.add_special_tokens({'pad_token': '[PAD]'})
-    tokenizer.padding_side = 'left'
+    # model = AutoModel.from_pretrained(model_name, trust_remote_code=True).half().cuda()
+    model = AutoModel.from_pretrained(model_name, trust_remote_code=True).cuda()
+    model = model.eval()
 
     return model, tokenizer
 
@@ -40,13 +31,13 @@ def inference(inputs):
         outputs = Output()
         
         with torch.no_grad():
-            response, history = model.chat(tokenizer, data, history,**parameters)
+            response, history = model.chat(tokenizer, data, history, **parameters)
         
-        outputs.add_as_json({"response": response, "history":history})
+        outputs.add_as_json({"response": response, "history": history})
         return outputs
     
     except Exception as e:
-        logging.exception("Huggingface inference failed")
+        logging.exception("Inference failed")
         # error handling
         outputs = Output().error(str(e))
 

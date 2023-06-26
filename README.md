@@ -4,19 +4,17 @@
  
 #### Sketch Demo
 <img src="demo.png" alt="image-22134105067" style="zoom:40%;" align="middle" />
-
+<img src="demo2.png" alt="image-22134105068" style="zoom:40%;" align="middle" />
 </br>
 
 #### Current Features:
 - Amazon Kendra Index as private Knowledge Base
 
-- Kendra knowledge retrieval
-
 - Private LLM on SageMaker Endpoint with LMI (Large Model Inference) container
 
 - WebSearch as a chain Tool
 
-- 'Hybrid Chain' - Internal Answer + web search => final answer
+- 'Hybrid Chain' - Internal Answer (Internal Knowledge) + web search => final answer
 
 </br>
 
