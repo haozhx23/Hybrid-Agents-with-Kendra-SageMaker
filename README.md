@@ -2,9 +2,12 @@
 
  \- on AWS
  
-#### Sketch Demo
-<img src="demo.png" alt="image-22134105067" style="zoom:40%;" align="middle" />
-<img src="demo2.png" alt="image-22134105068" style="zoom:40%;" align="middle" />
+#### Sketch Flow
+<img src="assets/hyb-agent-flow.jpg" alt="image-22134105000" style="zoom:100%;" align="middle" />
+
+#### Demo
+<img src="assets/demo.png" alt="image-22134105067" style="zoom:40%;" align="middle" />
+<img src="assets/demo2.png" alt="image-22134105068" style="zoom:40%;" align="middle" />
 </br>
 
 #### Current Features:
